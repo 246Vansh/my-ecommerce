@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="https://marketplace.canva.com/EAGQ1aYlOWs/1/0/1600w/canva-blue-colorful-illustrative-e-commerce-online-shop-logo-bHiX_0QpJxE.jpg">
+    <title>My Ecomerse</title>
+    <link rel="stylesheet" href="./css/productPage.css">
+</head>
+
+<body>
+
+    <!-- Free Delivery Banner -->
+    <p class="banner">🚚 Get free delivery on orders over $100</p>
+
+    <!-- Header Section -->
+    <header class="header">
+
+        <div class="first-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <a href="#">
+                    <img class="logo"
+                        src="https://marketplace.canva.com/EAGQ1aYlOWs/1/0/1600w/canva-blue-colorful-illustrative-e-commerce-online-shop-logo-bHiX_0QpJxE.jpg">
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./productPage.html">Product</a>
+                <a href="./companyPage.html">Company</a>
+                <a href="./storePage.html">Stores</a>
+            </nav>
+
+        </div>
+
+        <div class="second-container">
+            <div class="navbar">
+
+                <!-- Sign in / Create Account -->
+                <div class="auth-links">
+                    <a href="./loginPage.html" id="login">Log in</a>
+                    <span class="divider"></span>
+                    <a href="./signupPage.html" id="createAccount">Create account</a>
+                </div>
+
+                <!-- Avtar -->
+                <span class="circle">
+                    <span class="circle-text"></span>
+                </span>
+
+                <!-- Currency Selector -->
+                <div class="currency">
+                    <a href="#" class="currency-selector">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="Indian Flag">
+                        <span>IND</span>
+                    </a>
+                </div>
+
+                <!-- Search Icon -->
+                <div class="search-bar-container active">
+                    <img src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/magnifier-256.png"
+                        class="glass">
+                    <input type="text" class="input" placeholder="Search...">
+                    <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-25-512.png"
+                        class="mic">
+                </div>
+
+                <!-- Cart Icon -->
+                <div class="cart">
+                    <a href="./cartPage.html">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                        </svg>
+                        <span>0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <br>
+
+    <main>
+
+        <div class="headerM">
+            <h1>New Arrivals</h1>
+            <div class="controls">
+                <div class="dropdown">
+                    <button id="menu-button" class="menu-button">Sort
+                        <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-menu" role="menu" aria-orientation="vertical"
+                        aria-labelledby="menu-button" tabindex="-1">
+                        <ul class="menu-list">
+                            <li class="menu-item active">Most Popular</li>
+                            <li class="menu-item" id="Rating">Best Rating</li>
+                            <li class="menu-item">Newest</li>
+                            <li class="menu-item" id="lowPrice">Price: Low to High</li>
+                            <li class="menu-item" id="highPrice">Price: High to Low</li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="button" title="View grid">
+                    <svg class="icon" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M4.25 2A2.25 2.25 0 0 0 2 4.25v2.5A2.25 2.25 0 0 0 4.25 9h2.5A2.25 2.25 0 0 0 9 6.75v-2.5A2.25 2.25 0 0 0 6.75 2h-2.5Zm0 9A2.25 2.25 0 0 0 2 13.25v2.5A2.25 2.25 0 0 0 4.25 18h2.5A2.25 2.25 0 0 0 9 15.75v-2.5A2.25 2.25 0 0 0 6.75 11h-2.5Zm9-9A2.25 2.25 0 0 0 11 4.25v2.5A2.25 2.25 0 0 0 13.25 9h2.5A2.25 2.25 0 0 0 18 6.75v-2.5A2.25 2.25 0 0 0 15.75 2h-2.5Zm0 9A2.25 2.25 0 0 0 11 13.25v2.5A2.25 2.25 0 0 0 13.25 18h2.5A2.25 2.25 0 0 0 18 15.75v-2.5A2.25 2.25 0 0 0 15.75 11h-2.5Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="Two-section">
+
+            <div class="Category-filterSection">
+
+                <ul class="list">
+                    <li>
+                        <a href="#">Totes</a>
+                    </li>
+                    <li>
+                        <a href="#">Backpacks</a>
+                    </li>
+                    <li>
+                        <a href="#">Travel Bags</a>
+                    </li>
+                    <li>
+                        <a href="#">Hip Bags</a>
+                    </li>
+                    <li>
+                        <a href="#">Laptop Sleeves</a>
+                    </li>
+                </ul>
+
+                <div class="filter-container">
+                    <h3 class="filter-heading">
+                        <button type="button" class="filter-button" onclick="toggleFilter('color')">
+                            <span class="filter-title">Color</span>
+                            <span class="filter-icon">
+                                <svg class="icon expand-icon-color" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                                </svg>
+                                <svg class="icon collapse-icon-color hidden" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+
+                    <div class="filter-section hidden" id="filter-section-color">
+                        <div class="filter-options">
+                            <div class="filter-option"><input id="color-white" name="color[]" value="white"
+                                    type="checkbox"><label for="color-white">White</label></div>
+                            <div class="filter-option"><input id="color-beige" name="color[]" value="beige"
+                                    type="checkbox"><label for="color-beige">Beige</label></div>
+                            <div class="filter-option"><input id="color-blue" name="color[]" value="blue"
+                                    type="checkbox"><label for="color-blue">Blue</label></div>
+                            <div class="filter-option"><input id="color-black" name="color[]" value="black"
+                                    type="checkbox"><label for="color-brown">Black</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-container">
+                    <h3 class="filter-heading">
+                        <button type="button" class="filter-button" onclick="toggleFilter('category')">
+                            <span class="filter-title">Category</span>
+                            <span class="filter-icon">
+                                <svg class="icon expand-icon-category" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                                </svg>
+                                <svg class="icon collapse-icon-category hidden" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+
+                    <div class="filter-section hidden" id="filter-section-category">
+                        <div class="filter-options">
+                            <div class="filter-option"><input id="category-new" name="category[]" value="new-arrivals"
+                                    type="checkbox"><label for="category-new">New Arrivals</label></div>
+                            <div class="filter-option"><input id="category-sale" name="category[]" value="sale"
+                                    type="checkbox"><label for="category-sale">Sale</label></div>
+                            <div class="filter-option"><input id="category-Jewellery" name="category[]"
+                                    value="Jewellery" type="checkbox"><label for="category-Jewellery">Jewellery</label>
+                            </div>
+                            <div class="filter-option"><input id="category-clothes" name="category[]" value="clothes"
+                                    type="checkbox"><label for="category-clothes">Clothes</label></div>
+                            <div class="filter-option"><input id="category-Beauty" name="category[]" value="Beauty"
+                                    type="checkbox"><label for="category-Beauty">Beauty</label></div>
+                            <div class="filter-option"><input id="category-Fragrances" name="category[]"
+                                    value="Fragrances" type="checkbox"><label
+                                    for="category-Fragrances">Fragrances</label></div>
+                            <div class="filter-option"><input id="category-Groceries" name="category[]"
+                                    value="Groceries" type="checkbox"><label for="category-Groceries">Groceries</label>
+                            </div>
+                            <div class="filter-option"><input id="category-Shoes" name="category[]" value="Shoes"
+                                    type="checkbox"><label for="category-Shoes">Shoes</label></div>
+                            <div class="filter-option"><input id="category-Accessories" name="category[]"
+                                    value="Accessories" type="checkbox"><label
+                                    for="category-Accessories">Accessories</label></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-container">
+                    <h3 class="filter-heading">
+                        <button type="button" class="filter-button" onclick="toggleFilter('size')">
+                            <span class="filter-title">Size</span>
+                            <span class="filter-icon">
+                                <svg class="icon expand-icon-size" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                                </svg>
+                                <svg class="icon collapse-icon-size hidden" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M4 10a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 10Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h3>
+
+                    <div class="filter-section hidden" id="filter-section-size">
+                        <div class="filter-options">
+                            <div class="filter-option"><input id="size-xs" name="size[]" value="xs"
+                                    type="checkbox"><label for="size-xs">Extra Small</label></div>
+                            <div class="filter-option"><input id="size-s" name="size[]" value="s" type="checkbox"><label
+                                    for="size-s">Small</label></div>
+                            <div class="filter-option"><input id="size-m" name="size[]" value="m" type="checkbox"><label
+                                    for="size-m">Medium</label></div>
+                            <div class="filter-option"><input id="size-l" name="size[]" value="l" type="checkbox"><label
+                                    for="size-l">Large</label></div>
+                            <div class="filter-option"><input id="size-xl" name="size[]" value="xl"
+                                    type="checkbox"><label for="size-xl">XL</label></div>
+                            <div class="filter-option"><input id="size-2xl" name="size[]" value="2xl"
+                                    type="checkbox"><label for="size-2xl">2XL</label></div>
+                            <div class="filter-option"><input id="size-3xl" name="size[]" value="3xl"
+                                    type="checkbox"><label for="size-3xl">3XL</label></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="Product-section">
+                <div class="grid-container"></div>
+            </div>
+
+        </div>
+
+        <div class="pagination">
+            <button id="prevButton" class="page-button" onclick="changePage(currentPage - 1)">Previous</button>
+            <div class="page-container" id="pageNumbers"></div>
+            <button id="nextButton" class="page-button" onclick="changePage(currentPage + 1)">Next</button>
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">Bags</a></li>
+                    <li><a href="#">Tees</a></li>
+                    <li><a href="#">Objects</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms And Condition</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Account</h3>
+                <ul>
+                    <li><a href="./signupPage.html">Sign In</a></li>
+                    <li><a href="#">Manage Account</a></li>
+                    <li><a href="#">Return And Exchange</a></li>
+                    <li><a href="#">Redeem a Gift Card</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Order History</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://in.linkedin.com/">Linkdin</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Sign up for our newsletter</h3>
+                <p>The latest deals and savings, sent to your inbox weekly.</p>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Sign up</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Company, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+<script src="./js/productPage.js"></script>

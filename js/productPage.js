@@ -179,6 +179,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         generatePagination();
     });
 
+    categoryBeauty.addEventListener("click", () => {
+        const beautyProducts = allProducts.filter(product => product.category.toLowerCase() === "beauty");
+        if (beautyProducts.length > 0) {
+            filteredProducts = beautyProducts;
+            totalProducts = filteredProducts.length;
+            totalPages = Math.ceil(totalProducts / itemsPerPage);
+            currentPage = 1;
+            renderProducts(getPaginatedProducts());
+            generatePagination();
+        } else {
+            console.log("No Products Found in This Category");
+        }
+    });
+
     searchInput.addEventListener("input", (event) => {
         searchQuery = event.target.value.trim().toLowerCase();
         isSearching = searchQuery !== "";

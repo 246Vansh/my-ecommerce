@@ -63,7 +63,7 @@ const searchInput = document.querySelector(".input");
 const lowPrice = document.getElementById("lowPrice");
 const highPrice = document.getElementById("highPrice");
 const rating = document.getElementById("Rating");
-const categoryBeauty = document.getElementById("category-Beauty");
+const checkboxes = document.querySelectorAll(".filter-option input[type='checkbox']");
 
 
 mic.addEventListener("click", () => {
@@ -179,18 +179,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         generatePagination();
     });
 
-    categoryBeauty.addEventListener("click", () => {
-        const beautyProducts = allProducts.filter(product => product.category.toLowerCase() === "beauty");
-        if (beautyProducts.length > 0) {
-            filteredProducts = beautyProducts;
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+            const selectedCategories = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value.toLowerCase());
+    
+            if (selectedCategories.length > 0) {
+                filteredProducts = allProducts.filter(product => 
+                    selectedCategories.includes(product.category.toLowerCase())
+                );
+            } else {
+                filteredProducts = [...allProducts];
+            }
+    
             totalProducts = filteredProducts.length;
             totalPages = Math.ceil(totalProducts / itemsPerPage);
             currentPage = 1;
+    
             renderProducts(getPaginatedProducts());
             generatePagination();
-        } else {
-            console.log("No Products Found in This Category");
-        }
+        });
     });
 
     searchInput.addEventListener("input", (event) => {

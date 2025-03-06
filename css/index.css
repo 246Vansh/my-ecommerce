@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
@@ -202,6 +202,116 @@ body {
 }
 
 /* === Main === */
+
+/* === Sale === */
+.relative {
+    position: relative;
+}
+
+.background-container {
+    position: absolute;
+    left: 5%;
+    width: 1400px;
+    height: 700px;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 100px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.shop-button {
+    display: inline-block;
+    background: #4F46E5;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.shop-button:hover {
+    background: #4338CA;
+}
+
+.collections {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 80px 20px;
+    background: white;
+    flex-wrap: wrap;
+}
+
+.collection {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.collection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.collection:hover img {
+    transform: scale(1.05);
+}
+
+.collection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, black);
+    opacity: 0.6;
+}
+
+.collection-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+.collection-info h3 a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 
 
 

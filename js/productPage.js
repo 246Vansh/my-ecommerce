@@ -47,6 +47,41 @@ document.addEventListener("click", function (event) {
     }
 });
 
+
+// Dynamic Category  Html
+
+const categoryFilterArray = [
+    "New Arrivals", "Sale", "Jewellery", "Clothes", "Beauty",
+    "Fragrances", "Groceries", "Shoes", "Accessories"
+];
+
+const filterContainer = document.getElementById("category-filter-container");
+
+categoryFilterArray.forEach(category => {
+    const formattedCategory = category.toLowerCase();
+
+    // Create filter-option div
+    const filterOptionDiv = document.createElement("div");
+    filterOptionDiv.classList.add("filter-option");
+
+    // Create checkbox input
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `category-${formattedCategory}`;
+    checkbox.name = "category[]";
+    checkbox.value = formattedCategory;
+
+    // Create label
+    const label = document.createElement("label");
+    label.htmlFor = `category-${formattedCategory}`;
+    label.textContent = category;
+
+    // Append elements
+    filterOptionDiv.appendChild(checkbox);
+    filterOptionDiv.appendChild(label);
+    filterContainer.appendChild(filterOptionDiv);
+});
+
 let currentPage = 1;
 let itemsPerPage = 20;
 let totalProducts = 0;
@@ -185,19 +220,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             const selectedCategories = Array.from(checkboxes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value.toLowerCase());
-    
+
             if (selectedCategories.length > 0) {
-                filteredProducts = allProducts.filter(product => 
+                filteredProducts = allProducts.filter(product =>
                     selectedCategories.includes(product.category.toLowerCase())
                 );
             } else {
                 filteredProducts = [...allProducts];
             }
-    
+
             totalProducts = filteredProducts.length;
             totalPages = Math.ceil(totalProducts / itemsPerPage);
             currentPage = 1;
-    
+
             renderProducts(getPaginatedProducts());
             generatePagination();
         });
@@ -237,5 +272,3 @@ function toggleFilter(filterType) {
     expandIcon.classList.toggle("hidden", isHidden);
     collapseIcon.classList.toggle("hidden", !isHidden);
 }
-
-

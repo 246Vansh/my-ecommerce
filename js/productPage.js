@@ -136,8 +136,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <p class="product-price"><strong>Price:</strong> $${product.price}</p>
                     <p class="product-category"><strong>Category:</strong> ${product.category}</p>
                     <div class="rating">${generateRatingStars(product.rating)}</div>
-                    <p class="availability"><strong>Availability:</strong> ${product.stock > 0 ? "In Stock" : "Out of Stock"}</p>
-                    <button class="buy-button">Add To Cart</button>
+                    <!--<p class="availability"><strong>Availability:</strong> ${product.stock > 0 ? "In Stock" : "Out of Stock"}</p>
+                    <button class="buy-button">Add To Cart</button>-->
                 </div>`;
             productContainer.appendChild(productCard);
         });
@@ -220,6 +220,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const selectedCategories = Array.from(checkboxes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value.toLowerCase());
+                console.log(selectedCategories);
 
             if (selectedCategories.length > 0) {
                 filteredProducts = allProducts.filter(product =>

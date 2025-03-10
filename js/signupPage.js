@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("userInfo", JSON.stringify({ username, email, password: hashedPassword }));
 
         alert("Signup successful!");
-        setTimeout(() => window.location.href = "index.html", 500);
+        setTimeout(() => window.location.href = "index.html", 100);
         
         form.reset();
     });

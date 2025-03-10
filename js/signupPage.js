@@ -33,16 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Hash password before storing it in localStorage
+        // Hash password before storing
         let hashedPassword = await hashPassword(password);
 
+        // Store securely in localStorage (but backend is recommended)
         localStorage.setItem("userInfo", JSON.stringify({ username, email, password: hashedPassword }));
 
-        alert("Form submitted successfully!");
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 500);
-
+        alert("Signup successful!");
+        setTimeout(() => window.location.href = "index.html", 500);
+        
         form.reset();
     });
 

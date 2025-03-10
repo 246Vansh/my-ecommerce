@@ -1,125 +1,147 @@
-/* General Styles */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f3f4f6;
+    height: 100vh;
     margin: 0;
 }
 
-/* Container */
 .container {
-    width: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
     max-width: 400px;
-    padding: 20px 40px 20px 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-/* Heading */
-h2 {
-    text-align: center;
+.form-container img {
+    width: 40px;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    font-weight: bold;
     color: #333;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 15px;
+.form-container p {
+    font-size: 14px;
+    color: #666;
 }
 
-/* Label */
-label {
-    display: block;
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 5px;
+.form-container a {
+    color: #4F46E5;
+    text-decoration: none;
     font-weight: bold;
 }
 
-/* Input Fields */
-input {
+.input-group {
+    margin-top: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
-/* Button */
-button {
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.options input {
+    margin-right: 5px;
+}
+
+.btn {
     width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
+    padding: 10px;
+    background-color: #4F46E5;
     border: none;
+    color: white;
+    font-size: 16px;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.btn:hover {
+    background-color: #4338CA;
 }
 
-/* Login Link */
-.login-link {
+.divider {
     text-align: center;
-    margin-top: 10px;
-    font-size: 20px;
+    margin: 20px 0;
+    font-weight: bold;
+    position: relative; /* Add this to position children correctly */
+    color: #666;
+    font-size: 14px;
 }
 
-.login-link a {
-    color: #007bff;
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 1px;
+    background: #ccc;
+    top: 50%;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+
+.social-login {
+    display: flex;
+    gap: 10px;
+}
+
+.social-login a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     text-decoration: none;
+    color: #333;
+    font-size: 14px;
 }
 
-.login-link a:hover {
-    text-decoration: underline;
+.social-login img {
+    width: 20px;
+    margin-right: 10px;
 }
 
-/* For Tablets (Width 768px and Below) */
-@media (max-width: 768px) {
-    .container {
-        max-width: 90%;
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-    input {
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 10px;
-    }
-}
-
-/* For Mobile Devices (Width 480px and Below) */
-@media (max-width: 480px) {
-    .container {
-        max-width: 95%;
-        padding: 10px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px;
-    }
+.image-container {
+    flex: 1;
+    margin-top: 2.8rem;
+    height: 660px;
+    background: url('https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80') no-repeat center center/cover;
 }

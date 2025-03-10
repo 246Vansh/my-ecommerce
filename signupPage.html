@@ -10,27 +10,60 @@
 
 <body>
     <div class="container">
-        <h2>Sign Up</h2>
-        <form id="myForm">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter your full name" required>
+        <div class="form-container">
+            <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Company Logo">
+            <h2>Create your account</h2>
+            <p>Not a member? <a href="#">Start a 14-day free trial</a></p>
+
+            <form id="myForm">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox" name="remember-me"> Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">Sign in</button>
+            </form>
+
+            <div class="divider">Or continue with</div>
+
+            <div class="social-login">
+                <a href="#" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                    Google
+                </a>
+                <a href="#" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg" alt="GitHub">
+                    GitHub
+                </a>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-            </div>
-            <button id="submit" type="submit">Sign Up</button>
-        </form>
-        <p class="login-link">Already have an account? <a href="loginPage.html">Log in</a></p>
+            
+        </div>
+        <div class="image-container"></div>
     </div>
+
+    <script src="./js/signupPage.js"></script>
 </body>
-<script src="./js/signupPage.js"></script>
+
+</html>

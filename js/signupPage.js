@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("myForm");
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         let username = document.getElementById("name").value.trim();
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let namePattern = /^[A-Za-z\s]+$/;
         let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
         if (!namePattern.test(username)) {
             alert("Name must contain only letters.");
@@ -22,22 +23,36 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (password.length < 6) {
-            alert("Password must be at least 6 characters.");
+        if (!passwordPattern.test(password)) {
+            alert("Password must be at least 6 characters long and include:\n✅ 1 uppercase letter\n✅ 1 lowercase letter\n✅ 1 number\n✅ 1 special character (@$!%*?&)");
             return;
         }
 
         if (password !== confirmPassword) {
-            alert("Both the passwords must be the same.");
+            alert("Both passwords must be the same.");
             return;
         }
-        localStorage.setItem("userInfo", JSON.stringify({ username, email, password }));
+
+        // Hash password before storing it in localStorage
+        let hashedPassword = await hashPassword(password);
+
+        localStorage.setItem("userInfo", JSON.stringify({ username, email, password: hashedPassword }));
 
         alert("Form submitted successfully!");
         setTimeout(() => {
-            window.location.href = "index.html"
-        },500);
+            window.location.href = "index.html";
+        }, 500);
+
         form.reset();
     });
-    
+
+    // Function to hash password using SHA-256
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(hashBuffer))
+            .map(byte => byte.toString(16).padStart(2, '0'))
+            .join('');
+    }
 });

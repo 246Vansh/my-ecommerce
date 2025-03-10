@@ -48,6 +48,8 @@ document.addEventListener("click", function (event) {
 });
 
 
+
+
 // Dynamic Category  Html
 
 const categoryFilterArray = [
@@ -131,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             productCard.innerHTML = `
                 <div>
                     <h2 class="product-title">${product.title}</h2>
-                    <img src="${product.images[0]}" alt="${product.title}" class="product-image">
+                    <img src="${product.images[0]}" alt="${product.title}" class="product-image" loading="lazy">
                     <p class="product-description">${product.description.substring(0, 60)}...</p>
                     <p class="product-price"><strong>Price:</strong> $${product.price}</p>
                     <p class="product-category"><strong>Category:</strong> ${product.category}</p>
@@ -153,6 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             "★".repeat(emptyStars).replace(/★/g, '<span class="star">★</span>')
         );
     }
+
 
     function getPaginatedProducts() {
         const startIndex = (currentPage - 1) * itemsPerPage;

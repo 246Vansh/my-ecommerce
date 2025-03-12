@@ -140,10 +140,38 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <div class="rating">${generateRatingStars(product.rating)}</div>
                     <!--<p class="availability"><strong>Availability:</strong> ${product.stock > 0 ? "In Stock" : "Out of Stock"}</p>
                     <button class="buy-button">Add To Cart</button>-->
+                    <button class="quick-view" onclick="quickViewProduct()">Quick View</button>
                 </div>`;
-            productContainer.appendChild(productCard);
+
+                const quickViewButton = document.createElement("button");
+                quickViewButton.classList.add("quick-view");
+                quickViewButton.textContent = "Quick View";
+                quickViewButton.addEventListener("click", () => quickViewProduct(product));
+                productCard.appendChild(quickViewButton);
+                productContainer.appendChild(productCard);
         });
     }
+
+    //function quickViewProduct(product) {
+    //    const modal = document.getElementById("quickViewModal");
+    //    const modalContent = modal.querySelector(".modal-content");
+    //  
+    //    modalContent.innerHTML = `
+    //      <span class="close"></span>
+    //      <div class="quick-card">
+    //        <img src="${product.images[0]}" alt="${product.title}" class="quick-product-image" loading="lazy">
+    //        <h2 class="quick-product-title">${product.title}</h2>
+    //        <p class="quick-product-price"><strong>Price:</strong> $${product.price}</p>
+    //        <div class="quick-rating-review">
+    //          <div class="quick-rating">${generateRatingStars(product.rating)}</div>
+    //          <div class="quick-reviews">${product.reviews || ''}</div>
+    //        </div>
+    //        <div>
+    //          <a href="productDetail.html?id=${product.id}">View full details</a>
+    //        </div>
+    //      </div>
+    //    `;
+    //}
 
     function generateRatingStars(rating) {
         const fullStars = Math.floor(rating);
@@ -223,7 +251,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const selectedCategories = Array.from(checkboxes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value.toLowerCase());
-                console.log(selectedCategories);
+            console.log(selectedCategories);
 
             if (selectedCategories.length > 0) {
                 filteredProducts = allProducts.filter(product =>

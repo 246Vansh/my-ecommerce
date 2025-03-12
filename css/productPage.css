@@ -160,6 +160,14 @@ body {
 }
 
 /* === Search & Cart Icons === */
+/* Scope icons within the search bar and cart so they remain 24px */
+.search-bar-container .icon,
+.cart .icon {
+    height: 24px;
+    width: 24px;
+}
+
+/* === Search Bar Container === */
 .search-bar-container {
     display: flex;
     justify-content: center;
@@ -227,12 +235,6 @@ body {
     transform: scale(1.1);
 }
 
-/* === Icons === */
-.icon {
-    height: 24px;
-    width: 24px;
-}
-
 /* === Cart Styling === */
 .cart {
     position: relative;
@@ -255,14 +257,12 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-
 /* === Main === */
-
-.Two-section{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px;
+.Two-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .headerM {
@@ -288,6 +288,8 @@ h1 {
     position: relative;
 }
 
+/* === Menu Button & Icons === */
+/* Scope icons within the menu button so they are 16px */
 .menu-button {
     background: none;
     border: none;
@@ -305,7 +307,7 @@ h1 {
     color: #111827;
 }
 
-.icon {
+.menu-button .icon {
     width: 16px;
     height: 16px;
     fill: currentColor;
@@ -370,20 +372,18 @@ h1 {
     color: #6B7280;
 }
 
-
-.Category-filterSection{
+.Category-filterSection {
     max-width: 300px;
     padding-top: 1rem;
     padding-left: 1rem;
 }
-
 
 .list {
     list-style: none;
     padding: 0;
     margin: 0;
     border-bottom: 1px solid #e5e7eb;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     padding-bottom: 1.5rem;
     font-size: 1rem;
     color: #111827;
@@ -405,7 +405,7 @@ h1 {
 .filter-container {
     border-bottom: 1px solid #e5e7eb;
     padding: 1.5rem 0;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
 }
 
 .filter-heading {
@@ -418,7 +418,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     border: none;
-    background:none;
+    background: none;
     padding: 1rem 0;
     font-size: 1rem;
     font-weight: bold;
@@ -441,7 +441,8 @@ h1 {
     margin-left: 1.5rem;
 }
 
-.icon {
+/* Scope icons within the filter section so they are 20px */
+.filter-icon .icon {
     width: 20px;
     height: 20px;
 }
@@ -485,11 +486,10 @@ h1 {
     cursor: pointer;
 }
 
-
 /* === Product Grid === */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(280px, 1fr)); /* Ensures equal width */
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
@@ -510,14 +510,14 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 400px; /* Adjust this based on your design */
+    height: 400px;
 }
 
 /* === Product Image === */
 .product-image {
     width: 100%;
-    height: 180px; /* Ensures all images are the same height */
-    object-fit: contain; /* Prevents image distortion */
+    height: 180px;
+    object-fit: contain;
     border-radius: 10px;
 }
 
@@ -537,7 +537,7 @@ h1 {
     font-weight: bold;
     color: black;
     margin-bottom: 6px;
-    height: 40px; /* Fixed height to keep all titles uniform */
+    height: 40px;
     overflow: hidden;
 }
 
@@ -546,7 +546,7 @@ h1 {
     font-size: 14px;
     color: #555;
     line-height: 1.5;
-    height: 50px; /* Ensures all descriptions have the same height */
+    height: 50px;
     overflow: hidden;
 }
 
@@ -577,31 +577,30 @@ h1 {
     color: gold;
 }
 
-
-/* Buy Button */
-.buy-button {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    background-color: black;
-    color: white;
+/* Quick View Button */
+.quick-view {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: 2.2rem;
+    font-size: 15px;
+    background-color: whitesmoke;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: auto;
-    box-shadow: 0 4px 10px rgba(255, 123, 84, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.buy-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255, 123, 84, 0.5);
+/* Show button on hover */
+.quick-view:hover {
+    opacity: 1;
 }
 
 
-/* === Pagination ===*/
+/* === Pagination === */
 .pagination-container {
     background: #ffffff;
     max-width: 1100px;
@@ -633,7 +632,6 @@ h1 {
 .page-button:hover {
     color: #ffffff;
     background-color: #4f46e5;
-    border-top: none;
 }
 
 .page-button.active {

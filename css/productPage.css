@@ -12,6 +12,7 @@ body {
     justify-content: center;
     background-color: blue;
     color: #fff;
+    margin: 0;
     font-size: 16px;
     font-weight: 600;
     padding: 12px 20px;
@@ -99,21 +100,29 @@ body {
 .auth-links {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1.3rem;
 }
 
 .auth-links a {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     color: black;
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 8px 12px;
     border-radius: 6px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .auth-links a:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* === Divider === */
+.divider {
+    width: 1.5px;
+    height: 16px;
+    background-color: lightgray;
+    display: inline-flex;
 }
 
 .circle {
@@ -130,13 +139,6 @@ body {
     font-size: 1.1rem;
     font-weight: 500;
     color: white;
-}
-
-/* === Divider === */
-.divider {
-    width: 1px;
-    height: 24px;
-    background-color: #ddd;
 }
 
 /* === Currency Selector === */

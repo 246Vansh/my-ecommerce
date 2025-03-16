@@ -140,38 +140,65 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <div class="rating">${generateRatingStars(product.rating)}</div>
                     <!--<p class="availability"><strong>Availability:</strong> ${product.stock > 0 ? "In Stock" : "Out of Stock"}</p>
                     <button class="buy-button">Add To Cart</button>-->
-                    <button class="quick-view" onclick="quickViewProduct()">Quick View</button>
                 </div>`;
 
-                const quickViewButton = document.createElement("button");
-                quickViewButton.classList.add("quick-view");
-                quickViewButton.textContent = "Quick View";
-                quickViewButton.addEventListener("click", () => quickViewProduct(product));
-                productCard.appendChild(quickViewButton);
-                productContainer.appendChild(productCard);
+            const quickViewButton = document.createElement("button");
+            quickViewButton.classList.add("quick-view");
+            quickViewButton.textContent = "Quick View";
+            quickViewButton.addEventListener("click", () => quickViewProduct(product));
+            productCard.appendChild(quickViewButton);
+            productContainer.appendChild(productCard);
+        });
+    };
+
+    function quickViewProduct(product) {
+        // Get the modal element
+        const modal = document.getElementById("quickViewModal");
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="quickCloseBtn">&times;</span>
+                <div class="modal-body">
+                    <img src="${product.images[0]}" alt="${product.title}" class="quickProductImage">
+                    <div class="quickProductDetails">
+                        <h2 class="quickProductTitle">${product.title}</h2>
+                        <p class="quickProductPrice">$${product.price}</p>
+                        <div class="quickRating">
+                            ${generateRatingStars(product.rating)}
+                        </div>
+                        <p class="quickProductColor">Color:
+                            <span class="quickColorOption" style="background: black;"></span>
+                            <span class="quickColorOption" style="background: gray;"></span>
+                        </p>
+                        <p class="quickProductSize">Size:
+                            <button class="size-btn active">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn disabled">XXL</button>
+                        </p>
+                        <button class="addToBag">Add to Bag</button>
+                        <a href=productDetail.html><button class="viewFullDetails">View Full Details</button></a>
+                    </div>
+                </div>
+            </div>
+        `;
+    
+        // Show the modal
+        modal.style.display = "block";
+    
+        // Close modal when clicking the close button
+        modal.querySelector(".quickCloseBtn").addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+    
+        // Close modal when clicking outside of it
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
         });
     }
-
-    //function quickViewProduct(product) {
-    //    const modal = document.getElementById("quickViewModal");
-    //    const modalContent = modal.querySelector(".modal-content");
-    //  
-    //    modalContent.innerHTML = `
-    //      <span class="close"></span>
-    //      <div class="quick-card">
-    //        <img src="${product.images[0]}" alt="${product.title}" class="quick-product-image" loading="lazy">
-    //        <h2 class="quick-product-title">${product.title}</h2>
-    //        <p class="quick-product-price"><strong>Price:</strong> $${product.price}</p>
-    //        <div class="quick-rating-review">
-    //          <div class="quick-rating">${generateRatingStars(product.rating)}</div>
-    //          <div class="quick-reviews">${product.reviews || ''}</div>
-    //        </div>
-    //        <div>
-    //          <a href="productDetail.html?id=${product.id}">View full details</a>
-    //        </div>
-    //      </div>
-    //    `;
-    //}
+    
 
     function generateRatingStars(rating) {
         const fullStars = Math.floor(rating);

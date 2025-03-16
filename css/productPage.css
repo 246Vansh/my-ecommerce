@@ -600,6 +600,242 @@ h1 {
 }
 
 
+/* -----------------------------
+   MODAL OVERLAY & ANIMATIONS
+------------------------------ */
+#quickViewModal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* -----------------------------
+     MODAL CONTENT
+  ------------------------------ */
+.modal-content {
+    background: #fff;
+    margin: 50px auto;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideDown 0.4s ease;
+    overflow: hidden;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* -----------------------------
+     CLOSE BUTTON
+  ------------------------------ */
+.quickCloseBtn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    color: #9ca3af;
+    /* Gray-400 */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.quickCloseBtn:hover {
+    color: #374151;
+    /* Gray-700 */
+}
+
+/* -----------------------------
+     MODAL BODY LAYOUT
+  ------------------------------ */
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 30px;
+}
+
+/* Product Image: Left Column */
+.quickProductImage {
+    flex: 1 1 300px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Details: Right Column */
+.quickProductDetails {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* -----------------------------
+     PRODUCT TITLE & PRICE
+  ------------------------------ */
+.quickProductTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.quickProductPrice {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* -----------------------------
+     RATING SECTION
+  ------------------------------ */
+.quickRating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.quickRating svg {
+    fill: #fbbf24;
+    margin-right: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+/* -----------------------------
+     COLOR & SIZE SECTIONS
+  ------------------------------ */
+.quickProductColor,
+.quickProductSize {
+    font-size: 1rem;
+    color: #374151;
+    /* Gray-700 */
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Color Option Circles */
+.quickColorOption {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.quickColorOption:hover {
+    transform: scale(1.1);
+    border-color: #9ca3af;
+}
+
+/* Size Buttons */
+.size-btn {
+    padding: 8px 16px;
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    color: #374151;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.size-btn:hover:not(.active):not(.disabled) {
+    background-color: #6366f1;
+}
+
+.size-btn.active {
+    background-color: #6366f1;
+    color: #fff;
+    border-color: #6366f1;
+}
+
+.size-btn.disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    border-color: #d1d5db;
+    cursor: not-allowed;
+}
+
+/* -----------------------------
+     CALL-TO-ACTION BUTTONS
+  ------------------------------ */
+.addToBag {
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 370px;
+}
+
+.addToBag:hover {
+    background-color: #4f46e5;
+    /* Indigo-600 */
+}
+
+/* Secondary Button: View Full Details */
+.viewFullDetails {
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #ffffff;
+    color: #6366f1;
+    /* Indigo-500 */
+    border: 2px solid #6366f1;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    max-width: 370px;
+}
+
+.viewFullDetails:hover {
+    background-color: #6366f1;
+    color: #fff;
+}
+
 /* === Pagination === */
 .pagination-container {
     background: #ffffff;

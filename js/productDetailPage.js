@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".toggle-btn").forEach(button => {
         button.addEventListener("click", () => {
             const list = document.getElementById(button.getAttribute("aria-controls"));
-            const plusIcon = button.querySelector(".plus-icon");
-            const minusIcon = button.querySelector(".minus-icon");
+            const plusIcon = button.querySelector("#plusIcon");
+            const minusIcon = button.querySelector("#minusIcon");
 
             // Close all sections & reset icons
             document.querySelectorAll(".feature-list").forEach(sec => sec !== list && sec.classList.add("hidden"));
             document.querySelectorAll(".toggle-btn").forEach(btn => {
-                btn.querySelector(".plus-icon").classList.remove("hidden");
-                btn.querySelector(".minus-icon").classList.add("hidden");
+                btn.querySelector("#plusIcon").classList.remove("hidden");
+                btn.querySelector("#minusIcon").classList.add("hidden");
             });
 
             // Toggle current section & update icons

@@ -1,35 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const authLinks = document.querySelector(".auth-links");
-    const circle = document.querySelector(".circle");
-    const loginCircle = document.querySelector(".circle-text");
+    document.querySelectorAll(".toggle-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const list = document.getElementById(button.getAttribute("aria-controls"));
+            const plusIcon = button.querySelector(".plus-icon");
+            const minusIcon = button.querySelector(".minus-icon");
 
-    const getUserName = localStorage.getItem("userInfo");
+            // Close all sections & reset icons
+            document.querySelectorAll(".feature-list").forEach(sec => sec !== list && sec.classList.add("hidden"));
+            document.querySelectorAll(".toggle-btn").forEach(btn => {
+                btn.querySelector(".plus-icon").classList.remove("hidden");
+                btn.querySelector(".minus-icon").classList.add("hidden");
+            });
 
-    if (getUserName) {
-        try {
-            const jsonUserName = JSON.parse(getUserName);
-            const objectValue = Object.values(jsonUserName)[0];
-
-            if (objectValue) {
-                const [firstName, lastName] = objectValue.split(" ");
-                const userInitials = (firstName[0] + lastName[0]).toUpperCase();
-
-                if (loginCircle) {
-                    loginCircle.innerHTML = userInitials;
-                    circle.style.display = "flex";
-                }
-            }
-
-            if (authLinks) {
-                authLinks.style.display = "none";
-            }
-        } catch (error) {
-            console.error("Error parsing userInfo from localStorage:", error);
-            if (authLinks) authLinks.style.display = "block";
-            if (circle) circle.style.display = "none";
-        }
-    } else {
-        if (authLinks) authLinks.style.display = "block";
-        if (circle) circle.style.display = "none";
-    }
+            // Toggle current section & update icons
+            list.classList.toggle("hidden");
+            plusIcon.classList.toggle("hidden", !list.classList.contains("hidden"));
+            minusIcon.classList.toggle("hidden", list.classList.contains("hidden"));
+        });
+    });
 });

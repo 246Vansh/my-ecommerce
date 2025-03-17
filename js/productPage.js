@@ -182,15 +182,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </div>
         `;
-    
+
         // Show the modal
         modal.style.display = "block";
-    
+
         // Close modal when clicking the close button
         modal.querySelector(".quickCloseBtn").addEventListener("click", function () {
             modal.style.display = "none";
         });
-    
+
         // Close modal when clicking outside of it
         window.addEventListener("click", function (event) {
             if (event.target === modal) {
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         });
     }
-    
+
 
     function generateRatingStars(rating) {
         const fullStars = Math.floor(rating);
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     rating.addEventListener("click", () => {
-        console.log(filteredProducts.sort((a, b) => b.rating - a.rating));
+        filteredProducts.sort((a, b) => b.rating - a.rating);
         currentPage = 1;
         renderProducts(getPaginatedProducts());
         generatePagination();
@@ -331,3 +331,13 @@ function toggleFilter(filterType) {
     expandIcon.classList.toggle("hidden", isHidden);
     collapseIcon.classList.toggle("hidden", !isHidden);
 }
+
+const cartItemNo = document.querySelector(".cartNumber");
+let cartCount = localStorage.getItem("cartCount");
+cartItemNo.textContent = cartCount;
+function updateCartCount() {
+    cartCount++;
+    cartItemNo.textContent = cartCount;
+    alert("product add in cart");
+    localStorage.setItem("cartCount", cartCount);
+};

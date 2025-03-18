@@ -89,14 +89,15 @@ body {
     margin-bottom: 20px;
 }
 
-.productColor{
+.productColor {
     color: #555;
     margin-bottom: 10px;
 }
 
 .productMultipleColor {
     display: flex;
-    gap: 20px; /* Adjust spacing */
+    gap: 20px;
+    /* Adjust spacing */
     align-items: center;
     margin-bottom: 15px;
 }
@@ -122,21 +123,31 @@ body {
 }
 
 /* Color styles */
-.colorBlack { background-color: #333; }
-.colorWhite { background-color: blue; } 
-.colorGray { background-color: gray; }
+.colorBlack {
+    background-color: #333;
+}
+
+.colorWhite {
+    background-color: blue;
+}
+
+.colorGray {
+    background-color: gray;
+}
 
 /* Selected effect */
-.colorOption input:checked + .outerCircle {
-    border: 5px solid gray; /* Grey border for outer circle */
+.colorOption input:checked+.outerCircle {
+    border: 5px solid gray;
+    /* Grey border for outer circle */
 }
 
-.colorOption input:checked + .outerCircle .innerCircle {
-    border: 2px solid white; /* White inner border */
+.colorOption input:checked+.outerCircle .innerCircle {
+    border: 2px solid white;
+    /* White inner border */
 }
 
 
-.twoButton{
+.twoButton {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 30px;
@@ -213,7 +224,8 @@ body {
 }
 
 .feature-list ul {
-    list-style: none; /* Removes default bullet points */
+    list-style: none;
+    /* Removes default bullet points */
     padding: 0;
     color: #444;
     font-size: 16px;
@@ -230,7 +242,8 @@ body {
 }
 
 .feature-list li:hover {
-    background: #e6e6ff; /* Light blue hover effect */
+    background: #e6e6ff;
+    /* Light blue hover effect */
     transform: translateX(5px);
 }
 
@@ -239,4 +252,52 @@ body {
     font-weight: bold;
     margin-right: 10px;
     font-size: 18px;
+}
+
+
+.nextSection{
+    max-width: 1400px;
+    color: lightgray;
+}
+
+.incentivesContainer {
+    display: flex;
+    justify-content: center;
+    padding: 6rem 1rem;
+}
+
+.incentivesGrid {
+    display: flex;
+    flex-wrap: wrap;  /* Allows wrapping on smaller screens */
+    justify-content: center;
+    gap: 5rem;
+    text-align: center;
+}
+
+.incentivesGrid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;  /* Ensures a clean layout */
+}
+
+.incentivesGrid img {
+    display: block;
+    height: 6rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.incentivesGrid h3 {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.incentivesGrid p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #6B7280;
+    line-height: 1.5;
 }

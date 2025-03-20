@@ -18,4 +18,27 @@ document.addEventListener("DOMContentLoaded", () => {
             minusIcon.classList.toggle("hidden", list.classList.contains("hidden"));
         });
     });
+
+    const storedProduct = localStorage.getItem("SelectedProduct");
+    if (storedProduct) {
+        const product = JSON.parse(storedProduct);
+        document.getElementById("main-image").src = product.image;
+        document.getElementById("productTitle").textContent = product.title;
+        document.getElementById("productPrice").textContent = `$${product.price}`;
+        document.getElementById("productDescription").textContent = product.description;
+        document.getElementById("productReviews").innerHTML = generateRatingStars(product.rating);
+    };
+
+
 });
+
+function generateRatingStars(rating) {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - (fullStars + halfStar);
+    return (
+        "★".repeat(fullStars).replace(/★/g, '<span class="star filled">★</span>') +
+        "★".repeat(halfStar).replace(/★/g, '<span class="star filled">★</span>') +
+        "★".repeat(emptyStars).replace(/★/g, '<span class="star">★</span>')
+    );
+}

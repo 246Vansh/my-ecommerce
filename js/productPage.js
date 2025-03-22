@@ -319,7 +319,7 @@ function quickViewProduct(product) {
 
   const viewDetailsBtn = quickViewModal.querySelector(".viewFullDetails");
   viewDetailsBtn.addEventListener("click", () => {
-    sendProduct(product.title, product.description, product.price, product.rating, product.images[0]);
+    sendProduct(product.title, product.description, product.price, product.rating, product.images);
   });
 
   const addToBagBtn = quickViewModal.querySelector(".addToBag");
@@ -349,8 +349,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const sendProduct = (title, description, price, rating, image) => {
-  const product = JSON.stringify({ title, description, price, rating, image });
+const sendProduct = (title, description, price, rating, images) => {
+  const product = JSON.stringify({ title, description, price, rating, images });
   localStorage.setItem("SelectedProduct", product);
   window.location.href = 'productDetail.html';
 };

@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const mainImageEl = document.getElementById("main-image");
         if (mainImageEl) {
             mainImageEl.src = images[0];
+            mainImageEl.classList.add("lazy-loading");
         }
 
         const thumbnailContainer = document.querySelector(".multipleImage");
@@ -47,7 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 images.forEach((imgSrc) => {
                     const label = document.createElement("label");
                     label.classList.add("image-thumbnails");
+                    label.classList.add("lazy-load");
                     label.addEventListener("click", () => changeImage(imgSrc));
+
+                    const imageInput = document.createElement("input");
+                    imageInput.type = "radio";
+                    imageInput.classList.add("hidden");
+                    label.appendChild(imageInput);
 
                     const thumbImg = document.createElement("img");
                     thumbImg.src = imgSrc;

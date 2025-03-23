@@ -3,7 +3,7 @@ let allProducts = [];
 let filteredProducts = [];
 let currentPage = 1;
 const itemsPerPage = 20;
-let totalProducts = 0;
+let totalProducts = 0; 
 let totalPages = 0;
 
 // Cached DOM Elements
@@ -59,9 +59,6 @@ function initAuthUI() {
     if (authLinks) authLinks.style.display = "block";
     if (circle) circle.style.display = "none";
   }
-
-  let cartCount = parseInt(localStorage.getItem("cartCount"), 10) || 0;
-  cartItemNo.textContent = cartCount;
 }
 
 function initDropdownMenu() {
@@ -337,16 +334,12 @@ function updateCartCount() {
   cartItemNo.textContent = cartCount;
   localStorage.setItem("cartCount", cartCount);
   alert("Product added to cart");
-}
+};
 
 function updateCartCountUI() {
   let cartCount = parseInt(localStorage.getItem("cartCount"), 10) || 0;
   cartItemNo.textContent = cartCount;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartCountUI();
-});
+};
 
 
 const sendProduct = (title, description, price, rating, images) => {
@@ -367,15 +360,6 @@ function generateRatingStars(rating) {
   );
 }
 
-// --- Update Cart Count Function ---
-function updateCartCount() {
-  let cartCount = parseInt(localStorage.getItem("cartCount"), 10) || 0;
-  cartCount++;
-  cartItemNo.textContent = cartCount;
-  alert("Product added to cart");
-  localStorage.setItem("cartCount", cartCount);
-}
-
 
 function toggleFilter(filterType) {
   const filterSection = document.getElementById(`filter-section-${filterType}`);
@@ -394,5 +378,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   initSearchInput();
   initSorting();
   initFilterCheckboxes();
+  updateCartCountUI();
   await fetchAllProducts();
 });

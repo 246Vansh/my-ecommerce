@@ -3,10 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(data => {
             document.getElementById("header-placeholder").innerHTML = data;
+            updateCartCountUI();
             updateUserHeader();
         })
         .catch(error => console.error("❌ Error loading header:", error));
 });
+
+function updateCartCountUI() {
+    let cartItemNo = document.querySelector(".cartNumber");
+    let cartCount = parseInt(localStorage.getItem("cartCount"), 10) || 0;
+    cartItemNo.textContent = cartCount;
+};
+
 
 function updateUserHeader() {
 
@@ -27,7 +35,7 @@ function updateUserHeader() {
             let userInitials = firstInitial + lastInitial;
 
             if (loginCircle) {
-                loginCircle.innerHTML = userInitials || firstInitial;
+                loginCircle.innerHTML = userInitials;
                 circle.style.display = "flex";
             }
 

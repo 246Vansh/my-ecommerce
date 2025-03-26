@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: white;
+    background: white;
     margin: 0;
     padding: 0;
 }
@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: blue;
+    background: blue;
     color: #fff;
     margin: 0;
     font-size: 16px;
@@ -25,16 +25,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background: #fff;
     padding: 15px 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .first-container {
     display: flex;
     align-items: center;
     gap: 2rem;
-    justify-content: space-between;
 }
 
 /* === Logo === */
@@ -90,7 +92,7 @@ body {
 .navbar {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 /* === Authentication Links === */
@@ -107,30 +109,29 @@ body {
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 6px;
-    transition: background-color 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
 }
 
 .auth-links a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 /* === Divider === */
 .divider {
     width: 1.5px;
     height: 16px;
-    background-color: lightgray;
+    background: lightgray;
     display: inline-flex;
 }
 
-
 .circle {
-    display: inline-flex;
+    display: flex;
     width: 46px;
     height: 46px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: lightskyblue;
+    background: lightskyblue;
 }
 
 .circle-text {
@@ -143,7 +144,7 @@ body {
 .currency a {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 6px;
     font-size: 1.2rem;
     font-weight: 500;
     color: #4a5568;
@@ -159,6 +160,71 @@ body {
     transform: scale(1.1);
 }
 
+/* === Search & Cart Icons === */
+.search-bar-container .icon,
+.cart .icon {
+    height: 24px;
+    width: 24px;
+}
+
+/* === Search Bar === */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.glass {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+.mic {
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    padding-left: 3rem;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    color: rgb(100, 100, 100);
+    transition: width 0.5s ease, opacity 0.3s ease;
+}
+
+/* === Search Bar Active State === */
+.search-bar-container.active {
+    width: 50px;
+    cursor: pointer;
+}
+
+.search-bar-container.active .input {
+    width: 0;
+    opacity: 0;
+}
+
+.search-bar-container.active .mic {
+    opacity: 0;
+}
+
+/* === Cart Styling === */
+.cart {
+    position: relative;
+}
+
 .cart a {
     display: flex;
     align-items: center;
@@ -172,22 +238,11 @@ body {
     transform: scale(1.1);
 }
 
-/* === Icons === */
-.icon {
-    height: 24px;
-    width: 24px;
-}
-
-/* === Cart Styling === */
-.cart {
-    position: relative;
-}
-
 .cart span {
     position: absolute;
     top: -5px;
     right: -8px;
-    background-color: #e53e3e;
+    background: #e53e3e;
     color: white;
     font-size: 12px;
     font-weight: bold;

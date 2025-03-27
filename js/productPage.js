@@ -3,16 +3,10 @@ let allProducts = [];
 let filteredProducts = [];
 let currentPage = 1;
 const itemsPerPage = 20;
-let totalProducts = 0; 
+let totalProducts = 0;
 let totalPages = 0;
 
 // Cached DOM Elements
-const authLinks = document.querySelector(".auth-links");
-const circle = document.querySelector(".circle");
-const loginCircle = document.querySelector(".circle-text");
-const searchBarContainer = document.querySelector(".search-bar-container");
-const mic = document.querySelector(".mic");
-const searchInput = document.querySelector(".input");
 const lowPrice = document.getElementById("lowPrice");
 const highPrice = document.getElementById("highPrice");
 const ratingSort = document.getElementById("Rating");
@@ -21,45 +15,11 @@ const productContainer = document.querySelector(".grid-container");
 const pageContainer = document.getElementById("pageNumbers");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
-const cartItemNo = document.querySelector(".cartNumber");
 const dropdownMenu = document.getElementById("dropdown-menu");
 const menuButton = document.getElementById("menu-button");
 const quickViewModal = document.getElementById("quickViewModal");
 
-let debounceTimeout = null;
-let searchQuery = "";
-let isSearching = false;
-
 // --- Initialization Functions ---
-
-function initAuthUI() {
-  const storedUserInfo = localStorage.getItem("userInfo");
-  if (storedUserInfo) {
-    try {
-      const jsonUserInfo = JSON.parse(storedUserInfo);
-      // Safely get the first value
-      const objectValue = Object.values(jsonUserInfo)[0];
-      if (objectValue) {
-        const names = objectValue.split(" ");
-        const firstName = names[0] || "";
-        const lastName = names[1] || "";
-        const userInitials = ((firstName[0] || "") + (lastName[0] || "")).toUpperCase();
-        if (loginCircle) {
-          loginCircle.innerHTML = userInitials;
-          circle.style.display = "flex";
-        }
-      }
-      if (authLinks) authLinks.style.display = "none";
-    } catch (error) {
-      console.error("Error parsing userInfo from localStorage:", error);
-      if (authLinks) authLinks.style.display = "block";
-      if (circle) circle.style.display = "none";
-    }
-  } else {
-    if (authLinks) authLinks.style.display = "block";
-    if (circle) circle.style.display = "none";
-  }
-}
 
 function initDropdownMenu() {
   if (menuButton && dropdownMenu) {
@@ -71,34 +31,6 @@ function initDropdownMenu() {
       if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
         dropdownMenu.classList.remove("show");
       }
-    });
-  }
-}
-
-function initSearchInput() {
-  if (mic) {
-    mic.addEventListener("click", () => {
-      searchBarContainer.classList.toggle("active");
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("input", (event) => {
-      clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(() => {
-        searchQuery = event.target.value.trim().toLowerCase();
-        isSearching = searchQuery !== "";
-        filteredProducts = isSearching
-          ? allProducts.filter(product =>
-            product.title.toLowerCase().includes(searchQuery)
-          )
-          : [...allProducts];
-        totalProducts = filteredProducts.length;
-        totalPages = Math.ceil(totalProducts / itemsPerPage);
-        currentPage = 1;
-        renderProducts(getPaginatedProducts());
-        generatePagination();
-      }, 300);
     });
   }
 }
@@ -327,21 +259,6 @@ function quickViewProduct(product) {
   quickViewModal.style.display = "block";
 }
 
-// --- Update Cart Count Function ---
-function updateCartCount() {
-  let cartCount = parseInt(localStorage.getItem("cartCount"), 10) || 0;
-  cartCount++;
-  cartItemNo.textContent = cartCount;
-  localStorage.setItem("cartCount", cartCount);
-  alert("Product added to cart");
-};
-
-function updateCartCountUI() {
-  let cartCount = parseInt(localStorage.getItem("cartCount"), 10) || 0;
-  cartItemNo.textContent = cartCount;
-};
-
-
 const sendProduct = (title, description, price, rating, images) => {
   const product = JSON.stringify({ title, description, price, rating, images });
   localStorage.setItem("SelectedProduct", product);
@@ -373,11 +290,8 @@ function toggleFilter(filterType) {
 
 // --- Main Initialization ---
 document.addEventListener("DOMContentLoaded", async () => {
-  initAuthUI();
   initDropdownMenu();
-  initSearchInput();
   initSorting();
   initFilterCheckboxes();
-  updateCartCountUI();
   await fetchAllProducts();
 });

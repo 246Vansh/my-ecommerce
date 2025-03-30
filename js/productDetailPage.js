@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Retrieve the product from local storage
-    const storedProduct = localStorage.getItem("SelectedProduct");
+    const storedProduct = localStorage.getItem("productDetail");
     if (storedProduct) {
         const product = JSON.parse(storedProduct);
 
@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 thumbnailContainer.style.display = "none";
             }
         }
-
 
         const productTitleEl = document.getElementById("productTitle");
         if (productTitleEl) productTitleEl.textContent = product.title;

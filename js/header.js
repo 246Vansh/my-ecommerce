@@ -13,41 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
     loadCartProducts();
 });
 
-function updateCartCount() {
-    const cartItemNo = document.querySelector(".cartNumber");
-    let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    let cartCount = cartProducts.length;
-    localStorage.setItem("cartCount", cartCount);
-    if (cartItemNo) {
-        cartItemNo.textContent = cartCount;
-    }
-}
-
-function cartProduct(title, price, images) {
-    let cartItems = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    const newProduct = { title, price, images };
-    cartItems.push(newProduct);
-    localStorage.setItem("cartProducts", JSON.stringify(cartItems));
-    updateCartCount();
-    alert("✅ Product Added To Cart");
-    window.location.href = 'cartPage.html';
-    cartBill();
-}
-
-function deleteProduct(index) {
-    let storedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    if (!Array.isArray(storedProducts) || storedProducts.length === 0) return;
-    storedProducts.splice(index, 1);
-    localStorage.setItem("cartProducts", JSON.stringify(storedProducts));
-    updateCartCount();
-    loadCartProducts();
-    cartBill();
-}
-
 function loadCartProducts() {
     const productContainer = document.querySelector(".cart-items");
     if (!productContainer) return;
-    const storedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    let storedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     productContainer.innerHTML = "";
 
     if (storedProducts.length === 0) {
@@ -65,8 +34,10 @@ function loadCartProducts() {
                 <p class="productTitle">${product.title}</p>
                 <p class="productPrice"><strong>Price:</strong> $${product.price}</p>
             </div>
-            <select class="quantitySelector">
-                ${[...Array(10).keys()].map(i => `<option>${i + 1}</option>`).join("")}
+            <select class="quantitySelector" data-index="${index}">
+                ${[...Array(10).keys()].map(i => 
+                    `<option value="${i + 1}" ${product.quantity == i + 1 ? "selected" : ""}>${i + 1}</option>`
+                ).join("")}
             </select>
             <button type="button" class="remove-btn" data-index="${index}">
                 <span class="sr-only">Remove</span>
@@ -84,6 +55,51 @@ function loadCartProducts() {
             deleteProduct(index);
         });
     });
+
+    document.querySelectorAll(".quantitySelector").forEach(selector => {
+        selector.addEventListener("change", updateQuantity);
+    });
+
+    cartBill();
+}
+
+function updateCartCount() {
+    const cartItemNo = document.querySelector(".cartNumber");
+    let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    let cartCount = cartProducts.length;
+    localStorage.setItem("cartCount", cartCount);
+    if (cartItemNo) {
+        cartItemNo.textContent = cartCount;
+    }
+}
+
+function updateQuantity(event) {
+    let storedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    const index = event.target.dataset.index;
+    storedProducts[index].quantity = parseInt(event.target.value, 10);
+    localStorage.setItem("cartProducts", JSON.stringify(storedProducts));
+    cartBill();
+}
+
+function cartProduct(title, price, images) {
+    let cartItems = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    const newProduct = { title, price, images, quantity: 1 };
+    cartItems.push(newProduct);
+    localStorage.setItem("cartProducts", JSON.stringify(cartItems));
+    updateCartCount();
+    alert("✅ Product Added To Cart");
+    window.location.href = 'cartPage.html';
+    cartBill();
+}
+
+function deleteProduct(index) {
+    let storedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+    if (!Array.isArray(storedProducts) || storedProducts.length === 0) return;
+    storedProducts.splice(index, 1);
+    localStorage.setItem("cartProducts", JSON.stringify(storedProducts));
+    updateCartCount();
+    loadCartProducts();
+    cartBill();
 }
 
 function updateUserHeader() {

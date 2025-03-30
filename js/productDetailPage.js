@@ -75,6 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const productReviewsEl = document.getElementById("productReviews");
         if (productReviewsEl) productReviewsEl.innerHTML = generateRatingStars(product.rating);
     }
+
+        const cartBtn = document.querySelector(".add-to-bag");
+        cartBtn.addEventListener("click", () => {
+            window.location.href = "cartPage.html";
+        })
+
 });
 
 
@@ -96,3 +102,5 @@ function generateRatingStars(rating) {
         "★".repeat(emptyStars).replace(/★/g, '<span class="star">★</span>')
     );
 }
+
+

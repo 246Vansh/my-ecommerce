@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             updateCartCount();
         })
         .catch(error => console.error("❌ Error loading header:", error));
-
     loadCartProducts();
 });
 
@@ -35,9 +34,9 @@ function loadCartProducts() {
                 <p class="productPrice"><strong>Price:</strong> $${product.price}</p>
             </div>
             <select class="quantitySelector" data-index="${index}">
-                ${[...Array(10).keys()].map(i => 
-                    `<option value="${i + 1}" ${product.quantity == i + 1 ? "selected" : ""}>${i + 1}</option>`
-                ).join("")}
+                ${[...Array(10).keys()].map(i =>
+            `<option value="${i + 1}" ${product.quantity == i + 1 ? "selected" : ""}>${i + 1}</option>`
+        ).join("")}
             </select>
             <button type="button" class="remove-btn" data-index="${index}">
                 <span class="sr-only">Remove</span>
@@ -66,7 +65,7 @@ function loadCartProducts() {
 function updateCartCount() {
     const cartItemNo = document.querySelector(".cartNumber");
     let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    let cartCount = cartProducts.length;
+    let cartCount = cartProducts.reduce((total, item) => total + item.quantity, 0);
     localStorage.setItem("cartCount", cartCount);
     if (cartItemNo) {
         cartItemNo.textContent = cartCount;
@@ -78,13 +77,19 @@ function updateQuantity(event) {
     const index = event.target.dataset.index;
     storedProducts[index].quantity = parseInt(event.target.value, 10);
     localStorage.setItem("cartProducts", JSON.stringify(storedProducts));
+    updateCartCount();
     cartBill();
 }
 
 function cartProduct(title, price, images) {
     let cartItems = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    const newProduct = { title, price, images, quantity: 1 };
-    cartItems.push(newProduct);
+    let existingProduct = cartItems.find(item => item.title === title);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        const newProduct = { title, price, images, quantity: 1 };
+        cartItems.push(newProduct);
+    }
     localStorage.setItem("cartProducts", JSON.stringify(cartItems));
     updateCartCount();
     alert("✅ Product Added To Cart");

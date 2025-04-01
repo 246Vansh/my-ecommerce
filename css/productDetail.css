@@ -37,8 +37,9 @@
     transition: transform 0.2s, border 0.3s;
 }
 
-.image-thumbnails input:checked+img {
-    border-color: blue;
+.image-thumbnails.active {
+    border: 2px solid blue;
+    opacity: 0.8;
 }
 
 .image-thumbnails img:hover {
@@ -245,7 +246,7 @@
 }
 
 
-.nextSection{
+.nextSection {
     max-width: 1400px;
     color: lightgray;
 }
@@ -258,17 +259,19 @@
 
 .incentivesGrid {
     display: flex;
-    flex-wrap: wrap;  /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens */
     justify-content: center;
     gap: 5rem;
     text-align: center;
 }
 
-.incentivesGrid > div {
+.incentivesGrid>div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 250px;  /* Ensures a clean layout */
+    max-width: 250px;
+    /* Ensures a clean layout */
 }
 
 .incentivesGrid img {

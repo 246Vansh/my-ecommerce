@@ -25,3 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cartBill();
     loadCartProducts();
 });
+
+
+const checkoutBtn = document.querySelector(".checkout-button");
+checkoutBtn.addEventListener("click",() => {
+    window.location.href = "checkoutPage.html";
+});

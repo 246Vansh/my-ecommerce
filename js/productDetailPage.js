@@ -69,8 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-
-
         const productTitleEl = document.getElementById("productTitle");
         if (productTitleEl) productTitleEl.textContent = product.title;
         const productPriceEl = document.getElementById("productPrice");
@@ -111,7 +109,6 @@ function changeImage(src) {
         mainImageEl.src = src;
     }
 }
-
 
 function generateRatingStars(rating) {
     const fullStars = Math.floor(rating);

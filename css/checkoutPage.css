@@ -112,7 +112,8 @@ input[type="radio"] {
     flex-wrap: wrap;
 }
 
-.option {
+.option, 
+.optionTwo {
     flex: 1 1 240px;
     border: 2px solid #e5e7eb;
     border-radius: 0.75rem;
@@ -127,16 +128,19 @@ input[type="radio"] {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.option:hover {
+.option:hover,
+.optionTwo:hover {
     border-color: var(--primary-color);
 }
 
-.option.selected {
+.option.selected,
+.optionTwo.selected {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
 }
 
-.option.selected::after {
+.option.selected::after,
+.optionTwo.selected::after {
     content: "";
     position: absolute;
     top: 1rem;

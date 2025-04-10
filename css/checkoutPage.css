@@ -194,13 +194,14 @@ input[type="radio"] {
 }
 
 .product-summary {
-    min-width: 550px;
-    max-width: 650px;
+    min-width: 600px;
+    max-width: 700px;
 }
 
 .bothContainer {
     background-color: white;
-    padding: 1rem;
+    border-radius: 10px;
+    padding: 1.5rem;
 }
 
 .productContainer {
@@ -305,7 +306,7 @@ input[type="radio"] {
 .summary-item {
     display: flex;
     justify-content: space-between;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: #4b5563;
 }
 

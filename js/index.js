@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        document.querySelector(".cookie-banner").classList.add("show");
+        if (!sessionStorage.getItem("banner")) {
+            document.querySelector(".cookie-banner").classList.add("show");
+        }
     }, 500);
 });
 
 document.addEventListener("click", (event) => {
     const cookieBanner = document.querySelector(".cookie-banner");
-    
+
     if (!cookieBanner) return;
 
     if (event.target.classList.contains("accept-button") || event.target.classList.contains("reject-button")) {
+        sessionStorage.setItem("banner", "true"); // just a flag to remember user's choice
         cookieBanner.remove();
     }
 });
@@ -29,10 +32,10 @@ function generateText() {
         span.innerText = featureParagraph[index];
         span.style.opacity = "0";
         span.style.transition = "opacity 0.3s ease-in-out";
-        
+
         featurePara.appendChild(span);
         setTimeout(() => span.style.opacity = "1", 50);
-        
+
         index++;
         setTimeout(generateText, featureParagraph[index] === " " ? 100 : 50);
     }

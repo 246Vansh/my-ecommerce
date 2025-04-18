@@ -352,7 +352,6 @@ p {
     bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
     justify-content: center;
     padding: 16px;
     background: rgba(255, 255, 255, 0.95);
@@ -362,13 +361,18 @@ p {
     max-width: 600px;
     width: 90%;
     z-index: 10;
-    transition: bottom 0.5s ease-in-out, opacity 5s ease-in-out;
+    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
 }
 
 .cookie-banner.show {
     bottom: 20px;
     opacity: 1;
+    pointer-events: auto;
 }
+
 
 .cookie-content {
     background: white;

@@ -89,6 +89,10 @@ input[type="radio"] {
     margin-bottom: 0.5rem;
 }
 
+.input-error {
+    border: 2px solid red;
+}
+
 .name-fields,
 .city-country-row,
 .state-postal-row,

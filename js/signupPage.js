@@ -14,22 +14,22 @@ document.addEventListener("DOMContentLoaded", function () {
         let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
         if (!namePattern.test(username)) {
-            alert("Name must contain only letters.");
+            alert("❗❗Name must contain only letters.");
             return;
         }
 
         if (!emailPattern.test(email)) {
-            alert("Enter a valid email address.");
+            alert("❗❗Enter a valid email address.");
             return;
         }
 
         if (!passwordPattern.test(password)) {
-            alert("Password must be at least 6 characters long and include:\n✅ 1 uppercase letter\n✅ 1 lowercase letter\n✅ 1 number\n✅ 1 special character (@$!%*?&)");
+            alert("❗❗Password must be at least 6 characters long and include:\n❗❗ 1 uppercase letter\n❗❗ 1 lowercase letter\n❗❗ 1 number\n❗❗ 1 special character (@$!%*?&)");
             return;
         }
 
         if (password !== confirmPassword) {
-            alert("Both passwords must be the same.");
+            alert("❗❗Both passwords must be the same.");
             return;
         }
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Store securely in localStorage (but backend is recommended)
         localStorage.setItem("userInfo", JSON.stringify({ username, email, password: hashedPassword }));
 
-        alert("Signup successful!");
+        alert("✅Signup successful!");
         setTimeout(() => window.location.href = "index.html", 100);
         
         form.reset();

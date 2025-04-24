@@ -50,7 +50,7 @@ function userDetails() {
     });
 
     if (!allFilled) {
-        alert("❗ Please fill in all required fields before placing the order.");
+        alert("❗❗❗ Please fill in all required fields before placing the order.");
         return false;
     }
 
@@ -99,7 +99,7 @@ document.querySelector(".confirm-order-btn")?.addEventListener("click", () => {
     const storedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 
     if (storedProducts.length === 0) {
-        alert("Your cart is empty!");
+        alert("❗❗Your cart is empty!");
         return;
     }
 
